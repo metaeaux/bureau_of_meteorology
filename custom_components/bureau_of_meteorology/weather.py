@@ -81,7 +81,7 @@ class WeatherBase(WeatherEntity):
             Forecast(
                 datetime=iso8601.parse_date(data["date"]).astimezone(tzinfo).isoformat(),
                 native_temperature=data["temp_max"],
-                condition=MAP_CONDITION[data["icon_descriptor"]],
+                condition=data["icon_descriptor"],
                 templow=data["temp_min"],
                 native_precipitation=data["rain_amount_max"],
                 precipitation_probability=data["rain_chance"],
@@ -95,7 +95,8 @@ class WeatherBase(WeatherEntity):
             Forecast(
                 datetime=iso8601.parse_date(data["time"]).astimezone(tzinfo).isoformat(),
                 native_temperature=data["temp"],
-                condition=MAP_CONDITION[data["icon_descriptor"]],
+                condition=data["icon_descriptor"],
+                is_night=data["is_night"],
                 native_precipitation=data["rain_amount_max"],
                 precipitation_probability=data["rain_chance"],
                 wind_bearing=data["wind_direction"],
