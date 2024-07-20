@@ -99,11 +99,11 @@ class WeatherBase(WeatherEntity):
                 is_night=data["is_night"],
                 native_precipitation=data["rain_amount_max"],
                 precipitation_probability=data["rain_chance"],
-                wind_bearing=data["wind_direction"],
-                native_wind_speed=data["wind_speed_kilometre"],
-                wind_gust_speed=data["wind_gust_speed_kilometre"],
-                humidity=data["relative_humidity"],
-                uv=data["uv"],
+                # wind_bearing=data["wind_direction"],
+                # native_wind_speed=data["wind_speed_kilometre"],
+                # wind_gust_speed=data["wind_gust_speed_kilometre"],
+                # humidity=data["relative_humidity"],
+                # uv=data["uv"],
             )
             for data in self.collector.hourly_forecasts_data["data"]
         ]
